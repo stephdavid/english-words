@@ -31,11 +31,32 @@ $(document).ready(function () {
       populateDefinition(data, selectedWord)
    };
 
-   function getDescription(selectedWord) { // was onsearch()
-      fetch(speechURL, speechOptions).then(function (response) {
-         console.log(response)
-      })
-      getPronunciation()
+   function getDescription(selectedWord) {
+      const url = "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=" + selectedWord + "";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "twinword-word-graph-dictionary.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (data) {
+            console.log("API Response:", data);
+            // populateDescription(data, selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            alert("Something went wrong when getting the data. Please try again.");
+         });
+
+      getShakespeare(selectedWord);
    };
 
    // Needs a butten in the HTML with id clearAllButton
