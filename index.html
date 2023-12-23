@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
@@ -11,17 +13,29 @@
 </head>
 
 <body class="bg-dark">
-  <h1 class="text-white display-1" style="margin: 20px"><strong>English Words</strong></h1>
-  <header class="container-fluid d-flex" id="header">
-    
-  </header>
+  <h1><img class="img-fluid" src="assets/images/english-words.png" alt="English Words"></h1>
+  <header class="container-fluid d-flex" id="header"></header>
 
   <main class="d-flex flex-column">
     <section class="row align-items-center">
       <div class="col">
-        <label for="search" class="text-white display-6" style="margin: 2rem"><strong>Search for a word </strong><input type="text" class="rounded-pill py-3 w-40" id="search" name="search" /></label>
+        <label for="search" class="text-white display-6" style="margin: 2rem"><strong>Search for a word </strong><input
+            type="text" class="rounded-pill p-3 py-3 w-40" id="search" name="search" /></label>
       </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-body">
+            <p class="text-white display-6">Please provide a word</p>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="d-flex flex-column">
       <div id="result" class="my-1">
@@ -30,7 +44,8 @@
       </div>
 
       <div id="Shakespeare" class="my-1">
-        <h2 class="text-white display-6" style="margin: 2rem">How would Shakespeare Say It?<img src="assets/images/shakespearesm.png" alt="Shakespeare"></h2>
+        <h2 class="text-white display-6" style="margin: 2rem">How would Shakespeare say it?<img
+            src="assets/images/shakespearesm.png" alt="Shakespeare"></h2>
         <p id="shakes"></p>
       </div>
     </section>
@@ -43,12 +58,9 @@
     </aside>
   </main>
 
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>
 </body>

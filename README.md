@@ -14,7 +14,7 @@ https://stephdavid.github.io/English-Words/
 
 ### Use Case
 
-As a non-native English speaker, I would like to visit a pleasant looking modern website where I can input a word and get its definition. After that I can store the word for later consideration. As a native English speaker, I would be interested in detailed information about a chosen word.
+As a non-native English speaker, I would like to visit a pleasant looking modern website where I can input a word and get its definition. After that I can store the word for later consideration. As a native English speaker, I would be interested in how William Shakespear would say it.
 
 ### Screenshots
 
@@ -55,25 +55,7 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 
 ### Process
 
-* The project group agreed on a project to look up the definition of an English word and then pronounce that word, using the APIs https://rapidapi.com/dpventures/api/wordsapi/ and https://rapidapi.com/voicerss/api/text-to-speech-1/ 
-* Steph agreed to set up the GitHub repo and Project, and within the project create the necessary Tasks
-* Steph, Jeff and Matt discussed how the changes would be made to the Main repo. We agreed that branches could be used.
-* Steph set up the English-Helper repo, to add collaborators to the repo their GitHub user names are required. Steph asked for these in Slack
-* Jeff agreed to create mockup page to be presented in Figma
-* Steph proposed in Slack that, as a measure of organization, when a developer wants to merge their branch to the main branch, they create a "pull request", and another one of us can accept that pull request.
-Dec 20
-* Jeff presented his Figma design. The group accepted it overall, and decided to agree on the hero banner later.
-* Steph suggested a colourful banner collage. She displayed to the others this along with a carousel made with the images of English symbols. 
-* The group split up into two coding groups: front-end (Jeff and Deje) and back-end (Jeff, Hillary and Steph)
-Dec 21
-* Steph suggested an itemized list of backend tasks.
-* Steph also suggested a possible backend workflow.
-* It was agreed that completed items go to Testing rather than Done.
-* Matt suggested that another pull request be required for the main branch, so that the whole team could consider the pushed up code (if Steph is setting this up, she needs to review and perhaps get assistance from Mohammed again)
-Dec 22
-* Steph merged her accessibility changes to dev
-* Hillary pushed her initiate variables code
-* Steph made a pull request for various functions, and providing a work flow
+* Created a new repo. Rebranded the homepage. Added event listener and user input validation. Added modal. 
 
 
 ---
@@ -100,3 +82,15 @@ https://api.jquery.com/change/
 
 .add( elements )
 https://api.jquery.com/add/#add-elements
+
+Shakespeare Fonts
+https://www.fontspace.com/category/shakespeare
+
+keyup event
+https://api.jquery.com/keyup/
+
+event.type
+https://api.jquery.com/event.type/
+
+keycode 13 is for which key
+https://stackoverflow.com/questions/6086686/keycode-13-is-for-which-key
