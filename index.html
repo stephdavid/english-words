@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,50 +7,38 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>English Helper</title>
+  <title>English Words</title>
 </head>
 
-<body>
+<body class="bg-dark">
+  <h1 class="text-white display-1" style="margin: 20px"><strong>English Words</strong></h1>
   <header class="container-fluid d-flex" id="header">
-    <h1 style="margin: 20px">English Helper</h1>
-    <div class="row mx-auto align-items-center">
-      <div class="col">
-        <label for="search">Search for a word <input type="text" class="w-100 rounded-pill py-3" id="search" placeholder="Search a word"
-            name="search" /></label>
-      </div>
-    </div>
+    
   </header>
 
-  <main class="container mt-5 d-flex flex-column flex-md-row gx-2 mx-sm-1 mx-md-auto">
-    <div class="container">
-      <section id="result" class="my-1">
-        <h2 id="selectedWord">Definition</h2>
-        <p id="definition">
-          
-        </p>
-      </section>
-
-      <section id="pronunciation" class="my-1">
-        <h2>How Shakespeare Would Say It</h2>
-
-      </section>
-    </div>
-
-    <aside class="col previous-searches px-4 py-4 rounded-2 align-self-start w-100 mb-5">
-      <div class="row">
-        <div class="col">
-          <h2>Previous Searches</h2>
-        </div>
+  <main class="d-flex flex-column">
+    <section class="row align-items-center">
+      <div class="col">
+        <label for="search" class="text-white display-6" style="margin: 2rem"><strong>Search for a word </strong><input type="text" class="rounded-pill py-3 w-40" id="search" name="search" /></label>
       </div>
-      <div class="row gy-2" id="search-history-items">
-        <div class="rounded-pill search-history-item w-100 d-flex align-items-center justify-content-between py-1">
-          <p class="m-0">Hello</p>
-          <i class="bi bi-x-lg"></i>
-        </div>
-        <div class="rounded-pill search-history-item w-100 d-flex align-items-center justify-content-between py-1">
-          <p class="m-0">Test</p>
-          <i class="bi bi-x-lg"></i>
-        </div>
+    </section>
+
+    <section class="d-flex flex-column">
+      <div id="result" class="my-1">
+        <h2 class="text-white display-6" style="margin: 2rem" id="selectedWord">Definition:</h2>
+        <p id="definition"></p>
+      </div>
+
+      <div id="Shakespeare" class="my-1">
+        <h2 class="text-white display-6" style="margin: 2rem">How would Shakespeare Say It?<img src="assets/images/shakespearesm.png" alt="Shakespeare"></h2>
+        <p id="shakes"></p>
+      </div>
+    </section>
+    </div>
+    <aside>
+      <div id="previousSearches" class="my-1">
+        <h2 class="text-white display-6" style="margin: 2rem">Previous Searches</h2>
+        <p class="m-0"></p>
       </div>
     </aside>
   </main>
@@ -63,7 +50,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
-  <!-- Code to the JavaScript File -->
   <script src="assets/js/script.js"></script>
 </body>
 
