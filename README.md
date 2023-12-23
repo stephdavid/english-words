@@ -1,7 +1,7 @@
 
 # English Words
 
-Module 9 Project: This is a web page where a user can input a word and get a definition of that word (and possibly other information) and the user can find out how that word is used by Shakespeare.
+Module 9 Project: This is a web page where a user can input a word and get a definition of that word (and possibly other information) and the user can find out what word is in another language.
 
 ---
 
@@ -14,7 +14,7 @@ https://stephdavid.github.io/English-Words/
 
 ### Use Case
 
-As a non-native English speaker, I would like to visit a pleasant looking modern website where I can input a word and get its definition. After that I can store the word for later consideration. As a native English speaker, I would be interested in how William Shakespear would say it.
+As a non-native English speaker, I would like to visit a pleasant looking modern website where I can input a word and get its definition. After that I can store the word for later consideration. As a native English speaker, I would be interested in what the word is in a foreign language.
 
 ### Screenshots
 
@@ -56,7 +56,8 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 ### Process
 
 * Created a new repo. Rebranded the homepage. Added event listener and user input validation. Added modal. 
-
+* Connected to Word Dictionary API using fetch - https://rapidapi.com/twinword/api/word-dictionary and validation.
+* 
 
 ---
 

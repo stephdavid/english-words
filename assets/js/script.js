@@ -24,11 +24,32 @@ $(document).ready(function () {
       populateSearchHistory();
    };
 
-   function getShakespeare(selectedWord) {
-      fetch(speechURL, speechOptions).then(function (response) {
-         console.log(response)
-      })
-      populateDefinition(data, selectedWord)
+   function getTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=fr&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (data) {
+            console.log("API Response:", data);
+            // populateDescription(data, selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            alert("Something went wrong when getting the data. Please try again.");
+         });
+
    };
 
    function getDescription(selectedWord) {
@@ -56,7 +77,7 @@ $(document).ready(function () {
             alert("Something went wrong when getting the data. Please try again.");
          });
 
-      getShakespeare(selectedWord);
+      getTranslation(selectedWord);
    };
 
    // Needs a butten in the HTML with id clearAllButton
