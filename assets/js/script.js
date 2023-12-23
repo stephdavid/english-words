@@ -47,7 +47,7 @@ $(document).ready(function () {
          })
          .catch(function (error) {
             console.error("Error fetching data:", error);
-            alert("Something went wrong when getting the data. Please try again.");
+            $("#stephModal-2").modal("show");
          });
 
    };
@@ -74,7 +74,7 @@ $(document).ready(function () {
          })
          .catch(function (error) {
             console.error("Error fetching data:", error);
-            alert("Something went wrong when getting the data. Please try again.");
+            $("#stephModal-2").modal("show");
          });
 
       getTranslation(selectedWord);

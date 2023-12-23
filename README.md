@@ -57,7 +57,8 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 
 * Created a new repo. Rebranded the homepage. Added event listener and user input validation. Added modal. 
 * Connected to Word Dictionary API using fetch - https://rapidapi.com/twinword/api/word-dictionary and validation.
-* 
+* Connected to NLP Translation API using fetch - https://rapidapi.com/gofitech/api/nlp-translation and validation.
+* Changed two more alerts to modals (as they had the same message, one modal) - I tried to make the modal text a variable to no avail.
 
 ---
 
