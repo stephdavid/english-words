@@ -63,7 +63,7 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * Populated the definition and translation sections
 * Added local Storage (set and get and clear)
 * word -- mot -- palabra -- Wort -- λέξη(lexi) - New title and branding
-
+* change the name of the GitHub repo? Maybe someday. :-)
 ---
 
 ### References
@@ -103,3 +103,6 @@ https://stackoverflow.com/questions/6086686/keycode-13-is-for-which-key
 
 Remove default list-style in Bootstrap
 https://www.tutorialspoint.com/Remove-default-list-style-in-Bootstrap
+
+Which are the side effects of renaming a Git repository
+https://stackoverflow.com/questions/69839125/which-are-the-side-effects-of-renaming-a-git-repository
