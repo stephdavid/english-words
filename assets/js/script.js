@@ -1,278 +1,200 @@
-< !DOCTYPE html >
-   <html lang="en">
+$(document).ready(function () {
 
-      <head>
-         <meta charset="UTF-8" />
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
-         <link rel="stylesheet" href="./assets/css/style.css" />
-         <style>
-            #carouselSidebar {
-               display: inline-block;
-            float: right;
-            width: 400px;
-        }
-         </style>
-         <title>word -- mot -- palabra -- Wort -- lexi</title>
-      </head>
+   function populateSearchHistory() {
+      // Get a string from local storage
+      let getHistory = localStorage.getItem("selectedWord");
 
-      <body class="bg-dark">
-         <h1><img class="img-fluid" src="assets/images/word -- mot -- palabra -- Wort -- lexi.png"
-            alt="word mot palabra Wort lexi" /></h1>
-         <header class="container-fluid d-flex" id="header"></header>
+      getHistory = JSON.parse(getHistory);
+      if (Array.isArray(getHistory) && getHistory.length > 0) {
+         for (let i = 0; i < 10; i++) {
+            const li = $("<li>");
+            const entry = getHistory[i];
+            li.text(entry);
+            $("#prevSearches").append(li)
+         }
+      }
+   }
 
-         <main class="d-flex flex-column">
-            <section class="row align-items-center">
-               <div class="col">
-                  <label for="search" class="text-white display-6" style="margin: 2rem"><strong>Search for a word
-                  </strong><input type="text" class="rounded-lg p-3 py-2 w-40" id="search" name="search" /></label>
-               </div>
-            </section>
+   function populateDefinition(data) {
+      $("#selectedWord").text(data.entry);
+      $("#noun").text(data.meaning.noun);
+      $("#verb").text(data.meaning.verb);
+      $("#adjective").text(data.meaning.adjective);
+      $("#adverb").text(data.meaning.adverb);
 
-            <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content bg-dark">
-                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                     <div class="modal-body">
-                        <p class="text-white display-6">Please provide a word.</p>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="modal fade bg-transparent" id="stephModal-2" tabindex="-1" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content bg-dark">
-                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                     <div class="modal-body">
-                        <p class="text-white display-6">Something went wrong when getting the data. Please try again.
-                        </p>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
+      populateSearchHistory();
+   };
 
-            <section id="this-section" class="d-flex flex-column">
-               <div class="row">
-                  <!-- Left Column -->
-                  <div class="col">
-                     <div id="result" class="my-1">
-                        <h2 class="text-white display-6" style="margin: 2rem">Definition:</h2>
-                        <div class="border border-warning-subtle" style="margin: 2rem">
-                           <h3 class="text-white display-6" style="margin: 2rem" id="selectedWord"></h3>
-                           <p class="text-white" style="margin: 2rem; font-size: 1.5rem" id="noun"></p>
-                           <p class="text-white" style="margin: 2rem; font-size: 1.5rem" id="verb"></p>
-                           <p class="text-white" style="margin: 2rem; font-size: 1.5rem" id="adjective"></p>
-                           <p class="text-white" style="margin: 2rem; font-size: 1.5rem" id="adverb"></p>
-                        </div>
-                     </div>
+   function getDefinition(selectedWord) {
+      const url = "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=" + selectedWord + "";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "twinword-word-graph-dictionary.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (data) {
+            console.log("API Response:", data);
+            populateDefinition(data, selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
 
-                     <div class="my-1">
-                        <h2 class="text-white display-6" style="margin: 2rem">What is your chosen word in French?</h2>
-                        <div class="border border-warning-subtle" style="margin: 2rem">
-                           <h3 class="text-white display-6" style="margin: 2rem" id="translation-fr"></h3>
-                        </div>
-                     </div>
-                     <div class="my-1">
-                        <h2 class="text-white display-6" style="margin: 2rem">In Spanish?</h2>
-                        <div class="border border-warning-subtle" style="margin: 2rem">
-                           <h3 class="text-white display-6" style="margin: 2rem" id="translation-es"></h3>
-                        </div>
-                     </div>
-                     <div class="my-1">
-                        <h2 class="text-white display-6" style="margin: 2rem">What about in German?</h2>
-                        <div class="border border-warning-subtle" style="margin: 2rem">
-                           <h3 class="text-white display-6" style="margin: 2rem" id="translation-de"></h3>
-                        </div>
-                     </div>
-                     <div class="my-1">
-                        <h2 class="text-white display-6" style="margin: 2rem">Finally, in Greek?</h2>
-                        <div class="border border-warning-subtle" style="margin: 2rem">
-                           <h3 class="text-white display-6" style="margin: 2rem" id="translation-el"></h3>
-                        </div>
-                        <img src="assets/images/shakespearesm.png" alt="William Shakespeare - 'it's all Greek to me'" style="margin-left: 12rem">
-                     </div>
-                  </div>
+   function getGreekTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=el&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-el").text(dataT.translated_text.el);
+            getDefinition(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
 
-                  <!-- Right Column (Carousel) -->
-                  <div class="col">
-                     <!-- Carousel -->
-                     <div id="demo" class="carousel slide position-relative" data-bs-ride="carousel">
-                        <div id="carouselFade"
-                           class="carousel slide carousel-fade position-absolute top-0 start-50 translate-middle-x"
-                           style="width:90%">
+   function getGermanTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=de&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-de").text(dataT.translated_text.de);
+            getGreekTranslation(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
 
-                           <!-- The slideshow/carousel -->
-                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                 <img src="assets/images/phone-booth.jpg" alt="Red phone booth"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/english-bulldog.jpg" alt="English bulldog"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/young-woman-reading-oxford-dictionary.jpg"
-                                    alt="Young woman reading the Oxford Dictionary" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/angel-of-the-north.jpg" alt="Angel of the North"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/charlesIII.jpg" alt="CharlesIII" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/shakespeare.jpg" alt="William Shakespeare"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/english-breakfast.jpg" alt="English breakfast"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/british-museum.jpg" alt="British Museum"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/lavender.jpg" alt="lavender" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/cornwall.jpg" alt="Cornwall" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/hedgehog.jpg" alt="hedgehog" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/blackpool.jpg" alt="Blackpool" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/british-airways.jpg" alt="British Airways"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/durham.jpg" alt="Durham" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/liver-building-liverpool.jpg" alt="Liver Building Liverpool"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/chaucer-character.jpg" alt="Chaucer character"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/salford-quays.jpg" alt="Salford Quays"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/palace-of-westminster.jpg" alt="Palace of Westminster"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/cornwall2.jpg" alt="Cornwall" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/tea-cup.jpg" alt="cup of tea" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/isle-of-wight.jpg" alt="Isle of Wight"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/york-minster.jpg" alt="York Minster" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/william-morris-design.jpg" alt="William Morris design"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/village-walk.jpg" alt="village walk" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/tudor-rose.jpg" alt="Tudor rose" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/tower-bridge.jpg" alt="Tower Bridge" class="d-block w-100">
-                              </div>
 
-                              <div class="carousel-item">
-                                 <img src="assets/images/the-beatles.jpg" alt="The Beatles" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/rose.jpg" alt="rose" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/william-morris-design2.jpg" alt="William Morris design"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/robin-hood.jpg" alt="Robin Hood" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/robin.jpg" alt="robin" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/football.jpg" alt="football" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/london-underground.jpg" alt="London underground"
-                                    class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/stonehenge.jpg" alt="Stonehenge" class="d-block w-100">
-                              </div>
-                              <div class="carousel-item">
-                                 <img src="assets/images/village.jpg" alt="English village" class="d-block w-100">
-                              </div>
-                           </div>
 
-                           <!-- Left and right controls/icons -->
-                           <button class="carousel-control-prev" type="button" data-bs-target="#demo"
-                              data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon"></span>
-                           </button>
-                           <button class="carousel-control-next" type="button" data-bs-target="#demo"
-                              data-bs-slide="next">
-                              <span class="carousel-control-next-icon"></span>
-                           </button>
-                        </div>
-                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                           integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                           crossorigin="anonymous"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-                           integrity="sha384-BBtl eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-                           crossorigin="anonymous"></script>
-                     </div>
-                  </div>
-            </section>
+   function getSpanishTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=es&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-es").text(dataT.translated_text.es);
+            getGermanTranslation(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
 
-         </main>
-                  <aside>
-            <div id="previousSearches" class="my-1" style="margin: 2rem">
-               <h2 class="text-white display-6">Previous Searches</h2>
-               <ul id="prevSearches" class="m-0 text-white list-unstyled" style="font-size: 1.5rem">
-               </ul>
-               <label><button type="button" id="clearAllButton"
-                  class="btn btn-md text-black mt-2 bg-cau bg-warning-subtle fs-4">Clear Search
-                  History</button></label>
-            </div>
-         </aside>
-      </main>
+   function getFrenchTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=fr&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-fr").text(dataT.translated_text.fr);
+            getSpanishTranslation(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
 
-      <script src="https://code.jquery.com/jquery.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-         crossorigin="anonymous"></script>
-      <script src="assets/js/script.js"></script>
-   </body>
+   // Add a click event handler to clear localstorage
+   $("#clearAllButton").on("click", function (event) {
+      event.preventDefault;
+      localStorage.clear();
+      location.reload(true);
+   });
 
-</html >
+   $("#search").on("input keyup", function (event) {
+      let selectedWord = $(this).val().trim();
+
+      // Check if the key pressed is Enter (key code 13)
+      if (event.keyCode === 13) {
+         if (!selectedWord) {
+            // Show the modal
+            $("#stephModal").modal("show");
+            return false;
+         }
+         // Retrieve existing history array from local storage
+         let existingHistory = localStorage.getItem("selectedWord");
+         existingHistory = existingHistory ? JSON.parse(existingHistory) : [];
+
+         // Add the new selectedWord to the array
+         existingHistory.push(selectedWord);
+
+         // Store the updated array back in local storage
+         localStorage.setItem("selectedWord", JSON.stringify(existingHistory));
+
+         getFrenchTranslation(selectedWord);
+      }
+
+      // Handle input event for typing only (a) space(s) and Enter
+      if (event.type === "input" && !selectedWord) {
+         $("#stephModal").modal("show");
+         return false;
+      }
+   });
+});
