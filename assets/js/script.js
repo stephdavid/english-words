@@ -17,42 +17,17 @@ $(document).ready(function () {
       }
    }
 
-   function populateDefinition(data, selectedWord) {
-      selectedWord = selectedWord || "Select a word";
-      $("#selectedWord").text = selectedWord;// chg to HTML
-      $("#description").text = data;
+   function populateDefinition(data) {
+      $("#selectedWord").text(data.entry);
+      $("#noun").text(data.meaning.noun);
+      $("#verb").text(data.meaning.verb);
+      $("#adjective").text(data.meaning.adjective);
+      $("#adverb").text(data.meaning.adverb);
+           
       populateSearchHistory();
    };
 
-   function getTranslation(selectedWord) {
-      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=fr&from=en";
-      const options = {
-         method: "GET",
-         headers: {
-            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
-            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
-         }
-      };
-
-      fetch(url, options)
-         .then(function (response) {
-            if (!response.ok) {
-               throw new Error("Network response was not ok");
-            }
-            return response.json();
-         })
-         .then(function (data) {
-            console.log("API Response:", data);
-            // populateDescription(data, selectedWord);
-         })
-         .catch(function (error) {
-            console.error("Error fetching data:", error);
-            $("#stephModal-2").modal("show");
-         });
-
-   };
-
-   function getDescription(selectedWord) {
+   function getDefinition(selectedWord) {
       const url = "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=" + selectedWord + "";
       const options = {
          method: "GET",
@@ -70,15 +45,44 @@ $(document).ready(function () {
          })
          .then(function (data) {
             console.log("API Response:", data);
-            // populateDescription(data, selectedWord);
+            populateDefinition(data, selectedWord);
          })
          .catch(function (error) {
             console.error("Error fetching data:", error);
             $("#stephModal-2").modal("show");
          });
-
-      getTranslation(selectedWord);
    };
+
+   function getTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=fr&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation").text(dataT.translated_text.fr);
+            getDefinition(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
+
+
+
+
 
    // Needs a butten in the HTML with id clearAllButton
    // Add a click event handler to clear localstorage
@@ -98,7 +102,7 @@ $(document).ready(function () {
             $("#stephModal").modal("show");
             return false;
          }
-         getDescription(selectedWord);
+         getTranslation(selectedWord);
       }
 
       // Handle input event for typing only (a) space(s) and Enter

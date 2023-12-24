@@ -55,10 +55,14 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 
 ### Process
 
-* Created a new repo. Rebranded the homepage. Added event listener and user input validation. Added modal. 
+* Created a new repo. Rebranded the homepage. Added event listener and user input validation. Added bootstrap modal. 
 * Connected to Word Dictionary API using fetch - https://rapidapi.com/twinword/api/word-dictionary and validation.
 * Connected to NLP Translation API using fetch - https://rapidapi.com/gofitech/api/nlp-translation and validation.
 * Changed two more alerts to modals (as they had the same message, one modal) - I tried to make the modal text a variable to no avail.
+* A couple of issues - TODO later perhaps - unsure how to have a variable representing Modal text so that I don't have to build more than one modals though at this point there is only one other. Similarly, I found myself how to repeat a fetch(). How can I reuse a fetch for different APIs instead of creating multiple fetches.
+
+
+
 
 ---
 
