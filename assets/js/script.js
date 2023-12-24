@@ -51,7 +51,90 @@ $(document).ready(function () {
          });
    };
 
-   function getTranslation(selectedWord) {
+   function getGreekTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=el&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-el").text(dataT.translated_text.el);
+            getDefinition(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
+
+   function getGermanTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=de&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-de").text(dataT.translated_text.de);
+            getGreekTranslation(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
+
+
+
+   function getSpanishTranslation(selectedWord) {
+      const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=es&from=en";
+      const options = {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": "edffdf1e95msha5ea98f7066bb52p15b514jsnb04cc7a266bf",
+            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com"
+         }
+      };
+      fetch(url, options)
+         .then(function (response) {
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            return response.json();
+         })
+         .then(function (dataT) {
+            console.log("API Response:", dataT);
+            $("#translation-es").text(dataT.translated_text.es);
+            getGermanTranslation(selectedWord);
+         })
+         .catch(function (error) {
+            console.error("Error fetching data:", error);
+            $("#stephModal-2").modal("show");
+         });
+   };
+
+   function getFrenchTranslation(selectedWord) {
       const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=fr&from=en";
       const options = {
          method: "GET",
@@ -69,8 +152,8 @@ $(document).ready(function () {
          })
          .then(function (dataT) {
             console.log("API Response:", dataT);
-            $("#translation").text(dataT.translated_text.fr);
-            getDefinition(selectedWord);
+            $("#translation-fr").text(dataT.translated_text.fr);
+            getSpanishTranslation(selectedWord);
          })
          .catch(function (error) {
             console.error("Error fetching data:", error);
@@ -78,11 +161,6 @@ $(document).ready(function () {
          });
    };
 
-
-
-
-
-   // Needs a butten in the HTML with id clearAllButton
    // Add a click event handler to clear localstorage
    $("#clearAllButton").on("click", function (event) {
       event.preventDefault;
@@ -110,7 +188,7 @@ $(document).ready(function () {
          // Store the updated array back in local storage
          localStorage.setItem("selectedWord", JSON.stringify(existingHistory));
 
-         getTranslation(selectedWord);
+         getFrenchTranslation(selectedWord);
       }
 
       // Handle input event for typing only (a) space(s) and Enter
