@@ -2,17 +2,15 @@ $(document).ready(function () {
 
    function populateSearchHistory() {
       // Get a string from local storage
-      let getPreviousSearches = localStorage.getItem("selectedWord");
-      getPreviousSearches = JSON.parse(getPreviousSearches);
-      // Check if getPreviousSearches is an array
-      if (Array.isArray(getPreviousSearches) && getPreviousSearches.length > 0) {
-         //const searchButtons = ["button1", "button2", "button3"];
-         // Loop through the buttons and update their text content
-         for (let i = 0; i < getPreviousSearches.length && i < searchButtons.length; i++) {
-            const newValue = getPreviousSearches[i];
-            $("div#search-history-items").add("div").addClass("rounded-pill search-history-item w-100 d-flex align-items-center justify-content-between py-1");
-            $("div.").add("p").addClass("m-0");
-            $("p.m-0").text = newValue;
+      let getHistory = localStorage.getItem("selectedWord");
+
+      getHistory = JSON.parse(getHistory);
+      if (Array.isArray(getHistory) && getHistory.length > 0 ) {
+         for (let i = 0; i < 10; i++) {
+            const li = $("<li>");
+            const entry = getHistory[i];
+            li.text(entry);
+            $("#prevSearches").append(li)
          }
       }
    }
@@ -23,7 +21,7 @@ $(document).ready(function () {
       $("#verb").text(data.meaning.verb);
       $("#adjective").text(data.meaning.adjective);
       $("#adverb").text(data.meaning.adverb);
-           
+
       populateSearchHistory();
    };
 
@@ -102,6 +100,16 @@ $(document).ready(function () {
             $("#stephModal").modal("show");
             return false;
          }
+         // Retrieve existing history array from local storage
+         let existingHistory = localStorage.getItem("selectedWord");
+         existingHistory = existingHistory ? JSON.parse(existingHistory) : [];
+
+         // Add the new selectedWord to the array
+         existingHistory.push(selectedWord);
+
+         // Store the updated array back in local storage
+         localStorage.setItem("selectedWord", JSON.stringify(existingHistory));
+
          getTranslation(selectedWord);
       }
 

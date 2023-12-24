@@ -60,8 +60,8 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * Connected to NLP Translation API using fetch - https://rapidapi.com/gofitech/api/nlp-translation and validation.
 * Changed two more alerts to modals (as they had the same message, one modal) - I tried to make the modal text a variable to no avail.
 * A couple of issues - TODO later perhaps - unsure how to have a variable representing Modal text so that I don't have to build more than one modals though at this point there is only one other. Similarly, I found myself how to repeat a fetch(). How can I reuse a fetch for different APIs instead of creating multiple fetches.
-
-
+* Populated the definition and translation sections
+* Added local Storage (set and get and clear)
 
 
 ---
@@ -100,3 +100,6 @@ https://api.jquery.com/event.type/
 
 keycode 13 is for which key
 https://stackoverflow.com/questions/6086686/keycode-13-is-for-which-key
+
+Remove default list-style in Bootstrap
+https://www.tutorialspoint.com/Remove-default-list-style-in-Bootstrap
