@@ -62,7 +62,7 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * A couple of issues - TODO later perhaps - unsure how to have a variable representing Modal text so that I don't have to build more than one modals though at this point there is only one other. Similarly, I found myself how to repeat a fetch(). How can I reuse a fetch for different APIs instead of creating multiple fetches.
 * Populated the definition and translation sections
 * Added local Storage (set and get and clear)
-
+* word -- mot -- palabra -- Wort -- λέξη(lexi) - New title and branding
 
 ---
 
