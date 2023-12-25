@@ -1,15 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-family: "basco-std", serif;
   font-weight: 800;
   font-style: italic;
-
+  font-size: 1.5em;
+  color: white;
 }
 
-
+header {
+  background-image: url(../images/collage-bg.png);
+  background-position: center;
+  width: 100%;
+  min-height: 600px;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
 
 /* These apply for display screens 600px and larger */
-@media (min-width: 600px) {
-header {
+@media (min-width: 450px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  header {
     background-image: url(../images/collage-bg.png);
     background-position: center;
     background-size: cover;
@@ -19,9 +37,9 @@ header {
     padding: 0;
   }
 
-#carouselSidebar {
-  float: right;
-  width: 900px;
-}
+  #carouselSidebar {
+    float: right;
+    width: 900px;
+  }
 
 }
