@@ -1,20 +1,27 @@
-body {
-  margin: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 100%;
+h1 {
+  font-family: "basco-std", serif;
+  font-weight: 800;
+  font-style: italic;
+
 }
 
+
+
+/* These apply for display screens 600px and larger */
+@media (min-width: 600px) {
 header {
-  background-image: url(../images/collage-bg.png);
-  background-position: center;
-  background-size: cover;
-  min-height: 600px;
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-}
+    background-image: url(../images/collage-bg.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
 
 #carouselSidebar {
   float: right;
   width: 900px;
+}
+
 }

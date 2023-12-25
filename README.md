@@ -63,7 +63,8 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * Populated the definition and translation sections
 * Added local Storage (set and get and clear)
 * word -- mot -- palabra -- Wort -- λέξη(lexi) - New title and branding
-* change the name of the GitHub repo? Maybe someday. :-)
+* change the name of the GitHub repo? Not really needed.
+* Added new photos (France, Spain, Germany and Greece) to the carousel.
 ---
 
 ### References
@@ -106,3 +107,6 @@ https://www.tutorialspoint.com/Remove-default-list-style-in-Bootstrap
 
 Which are the side effects of renaming a Git repository
 https://stackoverflow.com/questions/69839125/which-are-the-side-effects-of-renaming-a-git-repository
+
+Hacking the Bootstrap 5 Carousel: Building Sidebar Carousels with CSS
+https://raybo.org/posts/2021-03-28-making-sidebar-carousels-with-css-by-hacking-the-bootstrap-5-carousel/
