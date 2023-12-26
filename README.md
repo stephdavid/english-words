@@ -37,20 +37,20 @@ https://stephdavid.github.io/english-words/
 
     * Use at least two server-side APIs 
 
-* Links to an external site..
+    * Links to an external site..
 
-* Use modals instead of alerts, confirms, or prompts.
+    * Use modals instead of alerts, confirms, or prompts.
 
-* Use client-side storage to store persistent data.
+    * Use client-side storage to store persistent data.
 
-* Be responsive.
+    * Be responsive.
 
-* Have a polished UI.
+    * Have a polished UI.
 
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class/id naming conventions, indentation, quality comments, and so on).
+    * Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class/id naming conventions, indentation, quality comments, and so on).
 
-* Have a quality README (including a unique name, description, technologies used, screenshot, and link to the deployed application).
- 
+    * Have a quality README (including a unique name, description, technologies used, screenshot, and link to the deployed application).
+     
 ---
 
 ### Process
@@ -69,7 +69,10 @@ https://stephdavid.github.io/english-words/
 * Redesigned the hero background collage include France etc.
 * Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an delegation event listener.
 * Made the previous search list items interactive, by using an click event.
-* Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items.
+* Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items. Added ARIA attributes for the bootstrap modals. Removed "label for" from search button as it is not required
+
+
+
 ---
 
 ### References
@@ -130,3 +133,10 @@ Autoplaying carousels
 
 A Step-By-Step Guide To Building Accessible Carousels
 https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/
+
+Should buttons have labels from WCAG point of view?
+https://stackoverflow.com/questions/71174375/should-buttons-have-labels-from-wcag-point-of-view
+
+Making Bootstrap Modals More Accessible
+https://jsfiddle.net/6gq9x/56/
+

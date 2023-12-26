@@ -20,15 +20,15 @@
   <main class="d-flex flex-column">
     <section class="row align-items-center">
       <div class="col">
-        <label for="search" class="text-white display-6 m-5">Search for a word
-          <input type="text" class="rounded-lg p-3 py-1" style="width:100%" id="search" name="search" /></label>
+        <label id="searchLabel" for="search" class="text-white display-6 m-5">Search for a word
+          <input type="text" class="rounded-lg p-3 py-1" style="width:100%" id="search" name="search" aria-labelledby="searchLabel"/></label>
       </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true" aria-label="Close"></button>
           <div class="modal-body">
             <p class="text-white display-6">Please provide a word.</p>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -36,10 +36,10 @@
         </div>
       </div>
     </div>
-    <div class="modal fade bg-transparent" id="stephModal-2" tabindex="-1" aria-hidden="true">
+    <div class="modal fade bg-transparent" id="stephModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true" aria-label="Close"></button>
           <div class="modal-body">
             <p class="text-white display-6">Something went wrong when getting the data. Please try again.
             </p>
@@ -583,9 +583,9 @@
         <h2 class="text-white display-6">Previous Searches</h2>
         <ul id="prevSearches" class="m-0 text-white list-unstyled fs-4">
         </ul>
-        <label for="clearAllbutton"><button type="button" id="clearAllButton" name="clearAllbutton"
+        <button type="button" aria-label="Clear search history"></button> id="clearAllButton" name="clearAllbutton"
             class="btn btn-md text-black mt-2 bg-cau bg-warning-subtle fs-4">Clear Search
-            History</button></label>
+            History</button>
       </div>
     </aside>
   </main>
