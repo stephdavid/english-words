@@ -69,6 +69,7 @@ https://stephdavid.github.io/english-words/
 * Redesigned the hero background collage include France etc.
 * Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an delegation event listener.
 * Made the previous search list items interactive, by using an click event.
+* Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items.
 ---
 
 ### References
@@ -123,3 +124,9 @@ https://www.w3schools.com/jquery/jquery_events.asp
 
 Understanding Event Delegation
 https://learn.jquery.com/events/event-delegation/
+
+https://getbootstrap.com/docs/5.3/components/carousel/#autoplaying-carousels
+Autoplaying carousels
+
+A Step-By-Step Guide To Building Accessible Carousels
+https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/
