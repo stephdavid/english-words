@@ -1,20 +1,5 @@
 $(document).ready(function () {
 
-   function populateSearchHistory() {
-      // Get a string from local storage
-      let getHistory = localStorage.getItem("selectedWord");
-
-      getHistory = JSON.parse(getHistory);
-      if (Array.isArray(getHistory) && getHistory.length > 0) {
-         for (let i = 0; i < 10; i++) {
-            const li = $("<li>");
-            const entry = getHistory[i];
-            li.text(entry);
-            $("#prevSearches").append(li)
-         }
-      }
-   }
-
    function populateDefinition(data) {
       $("#selectedWord").text(data.entry);
       $("#noun").text(data.meaning.noun);
@@ -22,7 +7,6 @@ $(document).ready(function () {
       $("#adjective").text(data.meaning.adjective);
       $("#adverb").text(data.meaning.adverb);
 
-      populateSearchHistory();
    };
 
    function getDefinition(selectedWord) {
@@ -105,8 +89,6 @@ $(document).ready(function () {
          });
    };
 
-
-
    function getSpanishTranslation(selectedWord) {
       const url = "https://nlp-translation.p.rapidapi.com/v1/translate?text=" + selectedWord + "&to=es&from=en";
       const options = {
@@ -161,11 +143,32 @@ $(document).ready(function () {
          });
    };
 
+   function getSearchHistory() {
+      // Get a string from local storage
+      let getHistory = localStorage.getItem("selectedWord");
+      getHistory = JSON.parse(getHistory);
+      if (Array.isArray(getHistory) && getHistory.length > 0) {
+         for (let i = 0; i < 10; i++) {
+            const li = $("<li>");
+            const entry = getHistory[i];
+            li.text(entry);
+            $("#prevSearches").append(li)
+         }
+      }
+   }
+
    // Add a click event handler to clear localstorage
    $("#clearAllButton").on("click", function (event) {
-      event.preventDefault;
+      event.preventDefault();
       localStorage.clear();
       location.reload(true);
+   });
+
+   // Add a click event handler for the previous searches
+   $('ul').on('click', 'li', function (event) {
+      event.preventDefault();
+      var selectedWord = $(this).text().trim();
+      getFrenchTranslation(selectedWord);
    });
 
    $("#search").on("input keyup", function (event) {
@@ -178,6 +181,7 @@ $(document).ready(function () {
             $("#stephModal").modal("show");
             return false;
          }
+
          // Retrieve existing history array from local storage
          let existingHistory = localStorage.getItem("selectedWord");
          existingHistory = existingHistory ? JSON.parse(existingHistory) : [];
@@ -197,4 +201,13 @@ $(document).ready(function () {
          return false;
       }
    });
+
+   $(document).ready(function () {
+      getSearchHistory();
+   });
 });
+
+
+
+
+
