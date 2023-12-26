@@ -20,14 +20,18 @@
     <section class="row align-items-center">
       <div class="col">
         <label id="searchLabel" for="search" class="text-white display-6 m-5">Search for a word
-          <input type="text" class="rounded-lg p-3 py-1" style="width:100%" id="search" name="search" aria-labelledby="searchLabel"/></label>
+          <input type="text" class="rounded-lg p-3 py-1" style="width:100%" id="search" name="search"
+            aria-labelledby="searchLabel" /></label>
       </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade bg-transparent" id="stephModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true"
+            aria-label="Close"></button>
+          <h4 class="modal-title" id="myModalLabel">Error</h4>
           <div class="modal-body">
             <p class="text-white display-6">Please provide a word.</p>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -35,10 +39,13 @@
         </div>
       </div>
     </div>
-    <div class="modal fade bg-transparent" id="stephModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade bg-transparent" id="stephModal-2" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel-2" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-hidden="true"
+            aria-label="Close"></button>
+          <h4 class="modal-title" id="myModalLabel-2">Error</h4>
           <div class="modal-body">
             <p class="text-white display-6">Something went wrong when getting the data. Please try again.
             </p>
@@ -55,8 +62,8 @@
           <div id="result" class="my-1">
             <h2 class="text-white display-6 m-5">Definition:</h2>
             <div class="border border-warning-subtle m-5">
-              <h3 class="text-white display-6 m-5" id="selectedWord"></h3>
-              <p class="text-white m-5 fs-4" id="noun"></p>
+              <h3 class="text-white display-6 m-5" id="selectedWord">your chosen word</h3>
+              <p class=" m-5 fs-4" id="noun"></p>
               <p class="text-white m-5 fs-4" id="verb"></p>
               <p class="text-white m-5 fs-4" id="adjective"></p>
               <p class="text-white m-5 fs-4" id="adverb"></p>
@@ -66,32 +73,34 @@
           <div class="my-1">
             <h2 class="text-white display-6 m-5">What is your chosen word in French?</h2>
             <div class="border border-warning-subtle m-5">
-              <h3 class="text-white display-6 m-5" id="translation-fr"></h3>
+              <h3 class="text-white display-6 m-5" id="translation-fr">translation</h3>
             </div>
           </div>
           <div class="my-1">
             <h2 class="text-white display-6 m-5">In Spanish?</h2>
             <div class="border border-warning-subtle m-5">
-              <h3 class="text-white display-6 m-5" id="translation-es"></h3>
+              <h3 class="text-white display-6 m-5" id="translation-es">translation</h3>
             </div>
           </div>
           <div class="my-1">
             <h2 class="text-white display-6 m-5">What about in German?</h2>
             <div class="border border-warning-subtle m-5">
-              <h3 class="text-white display-6 m-5" id="translation-de"></h3>
+              <h3 class="text-white display-6 m-5" id="translation-de">translation</h3>
             </div>
           </div>
           <div class="my-1">
             <h2 class="text-white display-6 m-5">Finally, in Greek?</h2>
             <div class="border border-warning-subtle m-5">
-              <h3 class="text-white display-6 m-5" id="translation-el"></h3>
+              <h3 class="text-white display-6 m-5" id="translation-el">translation</h3>
             </div>
           </div>
         </div>
         <!-- Right Column (Carousel) -->
         <div class="col-lg">
           <!-- Carousel -->
-          <div id="carousel-slide-show" class="carousel slide position-relative" data-bs-ride="true" role="region" aria-roledescription="carousel" aria-label="scenes and symbols of England, France, Spain, Germany and Greece">
+          <div id="carousel-slide-show" class="carousel slide position-relative" data-bs-ride="true" role="region"
+            aria-roledescription="carousel"
+            aria-label="scenes and symbols of England, France, Spain, Germany and Greece">
             <div id="carouselFade"
               class="carousel slide carousel-fade position-relative top-30 start-50 translate-middle-x"
               style="width:90%">
@@ -566,7 +575,8 @@
                   <span class="visually-hidden">Previous</span>
 
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel-slide-show" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel-slide-show"
+                  data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -582,9 +592,9 @@
         <h2 class="text-white display-6">Previous Searches</h2>
         <ul id="prevSearches" class="m-0 text-white list-unstyled fs-4">
         </ul>
-        <button type="button" aria-label="Clear search history"></button> id="clearAllButton" name="clearAllbutton"
-            class="btn btn-md text-black mt-2 bg-cau bg-warning-subtle fs-4">Clear Search
-            History</button>
+        <button type="button" aria-label="Clear search history" id="clearAllButton" name="clearAllbutton"
+        class="btn btn-md text-black mt-2 bg-cau bg-warning-subtle fs-4">Clear Search
+        History</button>
       </div>
     </aside>
   </main>

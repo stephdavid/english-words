@@ -69,7 +69,8 @@ https://stephdavid.github.io/english-words/
 * Redesigned the hero background collage include France etc.
 * Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an delegation event listener.
 * Made the previous search list items interactive, by using an click event.
-* Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items. Added ARIA attributes for the bootstrap modals. Removed "label for" from search button as it is not required
+* Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items. Added ARIA attributes for the bootstrap modals. Removed "label for" from search button as it is not required. 
+* Added titles to resolve the accssibility issue of no text with heading elements. As well, to resolve a similar issue, added a "visibly hidden title" to the modals. In the first case, the title is overwritten when the APIs output their results. In the latter case, font color is same as the backgroud i.e. no text-white class attribute is added.
 
 
 
