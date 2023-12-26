@@ -7,14 +7,14 @@ Module 9 Project: This is a web page where a user can input a word and get a def
 
 ### Webpage
 
-English Wprds
-https://stephdavid.github.io/English-Words/
+word - mot - palabra - Wort - λέξη
+https://stephdavid.github.io/english-words/
 
 ---
 
 ### Use Case
 
-As a non-native English speaker, I would like to visit a pleasant looking modern website where I can input a word and get its definition. After that I can store the word for later consideration. As a native English speaker, I would be interested in what the word is in a foreign language.
+* As a non-native English speaker, I would like to visit a pleasant-looking modern website where I can input a word and get its definition. After that, I can store the word for later consideration. As a native English speaker, I would be interested in what the word is in a foreign language.
 
 ### Screenshots
 
@@ -67,7 +67,7 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * Added new photos (France, Spain, Germany and Greece) to the carousel
 * Work to make the page responsive using Bootstrap breakpoints and an @media query
 * Redesigned the hero background collage include France etc.
-* Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an event listener.
+* Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an delegation event listener.
 * Made the previous search list items interactive, by using an click event.
 ---
 
