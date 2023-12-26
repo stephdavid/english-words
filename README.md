@@ -141,3 +141,5 @@ https://stackoverflow.com/questions/71174375/should-buttons-have-labels-from-wca
 Making Bootstrap Modals More Accessible
 https://jsfiddle.net/6gq9x/56/
 
+Headings should not be empty
+https://dequeuniversity.com/rules/axe/4.8/empty-heading?application=AxeChrome
