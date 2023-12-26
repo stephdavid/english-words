@@ -164,7 +164,7 @@ $(document).ready(function () {
       location.reload(true);
    });
 
-   // Add a click event handler for the previous searches
+   // Add a click event handler (event delegation) for the previous searches 
    $('ul').on('click', 'li', function (event) {
       event.preventDefault();
       var selectedWord = $(this).text().trim();

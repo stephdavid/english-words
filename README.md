@@ -63,8 +63,12 @@ As a non-native English speaker, I would like to visit a pleasant looking modern
 * Populated the definition and translation sections
 * Added local Storage (set and get and clear)
 * word -- mot -- palabra -- Wort -- λέξη(lexi) - New title and branding
-* change the name of the GitHub repo? Not really needed.
-* Added new photos (France, Spain, Germany and Greece) to the carousel.
+* change the name of the GitHub repo? Not really needed
+* Added new photos (France, Spain, Germany and Greece) to the carousel
+* Work to make the page responsive using Bootstrap breakpoints and an @media query
+* Redesigned the hero background collage include France etc.
+* Renamed the PopulateSearchHistory function to GetSearchHistory which is called once the page loads using an event listener.
+* Made the previous search list items interactive, by using an click event.
 ---
 
 ### References
@@ -110,3 +114,12 @@ https://stackoverflow.com/questions/69839125/which-are-the-side-effects-of-renam
 
 Hacking the Bootstrap 5 Carousel: Building Sidebar Carousels with CSS
 https://raybo.org/posts/2021-03-28-making-sidebar-carousels-with-css-by-hacking-the-bootstrap-5-carousel/
+
+jQuery ready() Method
+https://www.w3schools.com/jquery/event_ready.asp
+
+jQuery Event Methods
+https://www.w3schools.com/jquery/jquery_events.asp
+
+Understanding Event Delegation
+https://learn.jquery.com/events/event-delegation/
