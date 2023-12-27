@@ -159,3 +159,6 @@ https://jsfiddle.net/6gq9x/56/
 
 Headings should not be empty
 https://dequeuniversity.com/rules/axe/4.8/empty-heading?application=AxeChrome
+
+External links disown opener
+https://webhint.io/docs/user-guide/hints/hint-disown-opener/

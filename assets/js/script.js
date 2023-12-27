@@ -164,10 +164,19 @@ $(document).ready(function () {
       location.reload(true);
    });
 
+   // add an event handler to link to Google with the slide word
+   $('h2').on('click', 'a', function (event) {
+      event.preventDefault();
+      let slideInFocus = $(this).text().trim();
+      alert("I'm working!");
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(slideInFocus), '_blank', 'noopener noreferrer');
+   });
+
+
    // Add a click event handler (event delegation) for the previous searches 
    $('ul').on('click', 'li', function (event) {
       event.preventDefault();
-      var selectedWord = $(this).text().trim();
+      let selectedWord = $(this).text().trim();
       getFrenchTranslation(selectedWord);
    });
 
