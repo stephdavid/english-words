@@ -113,7 +113,7 @@ $(document).ready(function () {
       $("#verb").text(data.meaning.verb);
       $("#adjective").text(data.meaning.adjective);
       $("#adverb").text(data.meaning.adverb);
-      
+
       getFrenchTranslation(selectedWord);
    };
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
             console.error("Error fetching data:", error);
             $("#stephModal-2").modal("show");
          });
-   };
+   }
 
    function getSearchHistory() {
       // Get a string from local storage
@@ -175,7 +175,7 @@ $(document).ready(function () {
    $('ul').on('click', 'li', function (event) {
       event.preventDefault();
       let selectedWord = $(this).text().trim();
-      getFrenchTranslation(selectedWord);
+      getDefinition(selectedWord);
    });
 
    $("#search").on("input keyup", function (event) {

@@ -166,4 +166,3 @@ https://webhint.io/docs/user-guide/hints/hint-disown-opener/
 Link Opens New Window or Tab
 https://equalizedigital.com/accessibility-checker/link-opens-new-window-or-tab/
 
-git add -A
