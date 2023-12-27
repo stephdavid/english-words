@@ -14,7 +14,7 @@ https://stephdavid.github.io/english-words/
 
 ### Use Case
 
-* As a non-native English speaker, I would like to visit a pleasant-looking modern website where I can input a word and get its definition. After that, I can store the word for later consideration. As a native English speaker, I would be interested in what the word is in a foreign language.
+* I want a web app that is easy enough for a non-native English speaker to look up the definition of a word. As well, this app could be useful for native English speakers, who may want to know more details about the selected word, and what it is in different foreign languages.
 
 ### Screenshots
 
@@ -87,8 +87,8 @@ https://stephdavid.github.io/english-words/
 * Made the previous search list items interactive, by using an click event.
 * Commenced adding ARIA attributes, especially for carousel. Added the role="button" attribute - $("li").attr('role', 'button'); to the dynamically created previous history items. Added ARIA attributes for the bootstrap modals. Removed "label for" from search button as it is not required. 
 * Added titles to resolve the accssibility issue of no text with heading elements. As well, to resolve a similar issue, added a "visibly hidden title" to the modals. In the first case, the title is overwritten when the APIs output their results. In the latter case, font color is same as the backgroud i.e. no text-white class attribute is added.
-
-
+* Added an accessible link to Google in new tab for the active slide word
+* Created a presentation in Microsoft Sway - https://sway.office.com/1Yj5m4aVAdaOZmRs
 
 ---
 
@@ -162,3 +162,8 @@ https://dequeuniversity.com/rules/axe/4.8/empty-heading?application=AxeChrome
 
 External links disown opener
 https://webhint.io/docs/user-guide/hints/hint-disown-opener/
+
+Link Opens New Window or Tab
+https://equalizedigital.com/accessibility-checker/link-opens-new-window-or-tab/
+
+git add -A
