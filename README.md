@@ -20,20 +20,22 @@ https://stephdavid.github.io/english-words/
 
 **Initial View**
 
-![initial view ](assets/screenshots/word%20-%20mot%20-%20palabra%20-%20Wort%20-%20lexis.png)
+![initial view ](assets/screenshots/word-mot-palabra-Wort-lexis.png)
+
 
 ---
 
 **After receiving requested definition and translations**
 
-![definition and translations received ](assets/screenshots/word%20-%20mot%20-%20palabra%20-%20Wort%20-%20lexis%20completed.png)
+![definition and translations received ](assets/screenshots/word-mot-palabra-Wort-lexis-completed.png)
 
 
 ---
 
 **Mobile View**
 
-![mobile initial view ](assets/screenshots/word%20-%20mot%20-%20palabra%20-%20Wort%20-%20lexis%20mobile.png)
+![mobile initial view ](assets/screenshots/word-mot-palabra-Wort-lexis-mobile.png)
+
 
 ---
 
