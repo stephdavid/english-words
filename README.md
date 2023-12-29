@@ -168,3 +168,5 @@ https://webhint.io/docs/user-guide/hints/hint-disown-opener/
 Link Opens New Window or Tab
 https://equalizedigital.com/accessibility-checker/link-opens-new-window-or-tab/
 
+PNG to AVIF Converter
+https://convertio.co/png-avif/

@@ -14,7 +14,7 @@ h1 {
 }
 
 header {
-  background-image: url(../images/collage-bg.png);
+  background-image: url(../images/collage-bg.avif);
   background-position: center;
   width: 100%;
   min-height: 600px;
@@ -30,7 +30,7 @@ header {
   }
   
   header {
-    background-image: url(../images/collage-bg.png);
+    background-image: url(../images/collage-bg.avif);
     background-position: center;
     background-size: cover;
     min-height: 600px;
