@@ -16,6 +16,10 @@ https://stephdavid.github.io/english-words/
 
 * I want a web app that is easy enough for a non-native English speaker to look up the definition of a word. As well, this app could be useful for native English speakers, who may want to know more details about the selected word, and what it is in different foreign languages.
 
+### Wireframe
+
+![wireframe ](assets/screenshots/wireframe.png)
+
 ### Screenshots
 
 **Initial View**
